@@ -3,9 +3,9 @@ package numberSystem
 import numberSystem.base.Base
 
 class Decimal(val value: Int) : NumberSystem<Int>(value, 10) {
-    fun convertToBaseUnder11(base: Int): Base {
-        if (base < 2 || base > 10) {
-            throw IllegalArgumentException("Base must be greater than 1 and less than 11.")
+    fun convertToBase(base: Int): Base {
+        if (base < 2 || base > 36) {
+            throw IllegalArgumentException("Base must be greater than 2 and less than 36.")
         }
 
         if (value == 0) return when (base) {
@@ -17,38 +17,6 @@ class Decimal(val value: Int) : NumberSystem<Int>(value, 10) {
             7 -> Base.Base7()
             8 -> Base.Base8()
             9 -> Base.Base9()
-            else -> throw IllegalArgumentException("Unsupported base.")
-        }
-
-        var num = value
-        var result = ""
-
-        while (num > 0) {
-            val remainder = num % base
-            result += remainder
-            num /= base
-        }
-
-        result = result.reversed()
-        return when (base) {
-            2 -> Base.Binary(result)
-            3 -> Base.Base3(result)
-            4 -> Base.Base4(result)
-            5 -> Base.Base5(result)
-            6 -> Base.Base6(result)
-            7 -> Base.Base7(result)
-            8 -> Base.Base8(result)
-            9 -> Base.Base9(result)
-            else -> throw IllegalArgumentException("Unsupported base.")
-        }
-    }
-
-    fun convertToBaseAbove11(base: Int): Base {
-        if (base < 11 || base > 36) {
-            throw IllegalArgumentException("Base must be greater than 11 and less than 36.")
-        }
-
-        if (value == 0) return when (base) {
             11 -> Base.Base11()
             12 -> Base.Base12()
             13 -> Base.Base13()
@@ -90,6 +58,14 @@ class Decimal(val value: Int) : NumberSystem<Int>(value, 10) {
 
         result = result.reversed()
         return when (base) {
+            2 -> Base.Binary(result)
+            3 -> Base.Base3(result)
+            4 -> Base.Base4(result)
+            5 -> Base.Base5(result)
+            6 -> Base.Base6(result)
+            7 -> Base.Base7(result)
+            8 -> Base.Base8(result)
+            9 -> Base.Base9(result)
             11 -> Base.Base11(result)
             12 -> Base.Base12(result)
             13 -> Base.Base13(result)
