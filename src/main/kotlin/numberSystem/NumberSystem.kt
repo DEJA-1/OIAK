@@ -1,7 +1,7 @@
 package numberSystem
 
-open class NumberSystem<T>(private val value: T) {
+open class NumberSystem<T>(private val value: T, private val base: Int) {
     fun printValue() {
-        println(value)
+        println("Base $base: $value")
     }
 }

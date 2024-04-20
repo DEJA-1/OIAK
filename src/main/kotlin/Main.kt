@@ -1,22 +1,17 @@
-import numberSystem.Binary
 import numberSystem.Decimal
 
-fun main(args: Array<String>) {
-    val binaryToDecimal = Binary(value = "1110")
-        .toDecimal()
-        .printValue()
-
-    val sampleDecimal = Decimal(value = 14)
-
-    val decimalToBinary = sampleDecimal
-        .convertToBase(base = 2)
-        .printValue()
-
-    val decimalToBase3 = sampleDecimal
-        .convertToBase(base = 3)
-        .printValue()
-
-    val decimalToBase4 = sampleDecimal
-        .convertToBase(base = 4)
-        .printValue()
+fun main() {
+    val value = 156124
+    for (base in 2..36) {
+        if (base == 10) continue
+        if (base < 10) {
+            Decimal(value)
+                .convertToBaseUnder11(base)
+                .printValue()
+        } else {
+            Decimal(value)
+                .convertToBaseAbove11(base)
+                .printValue()
+        }
+    }
 }
