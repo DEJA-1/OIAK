@@ -4,8 +4,11 @@ fun main() {
     val value = 156124
     for (base in 2..36) {
         if (base == 10) continue
-        Decimal(value)
+        val decimalToBase = Decimal(value)
             .convertToBase(base)
-            .printValue()
+
+        decimalToBase.printValue()
+
+        decimalToBase.convertFromBaseToDecimal().printValue()
     }
 }

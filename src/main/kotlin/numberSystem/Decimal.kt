@@ -8,9 +8,8 @@ class Decimal(private val value: Int) : NumberSystem<Int>(value, 10) {
             throw IllegalArgumentException("Base must be greater than 2 and less than 36.")
         }
 
-        if (value == 0)  {
+        if (value == 0) {
             NumberBaseSystem(value = "0", base = base)
-            throw IllegalArgumentException("Unsupported base.")
         }
 
         var num = value
