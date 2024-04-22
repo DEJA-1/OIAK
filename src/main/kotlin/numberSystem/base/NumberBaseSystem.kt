@@ -18,4 +18,9 @@ class NumberBaseSystem(val value: String, val base: Int) : NumberSystem<String>(
 
         return Decimal(result)
     }
+
+    fun convertFromBaseToBase(targetBase: Int) : NumberBaseSystem {
+        val decimal = convertFromBaseToDecimal()
+        return decimal.convertToBase(targetBase)
+    }
 }

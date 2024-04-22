@@ -1,4 +1,5 @@
 import numberSystem.Decimal
+import numberSystem.base.NumberBaseSystem
 
 fun main() {
     val value = 156124
@@ -11,4 +12,7 @@ fun main() {
 
         decimalToBase.convertFromBaseToDecimal().printValue()
     }
+
+    val b34 = NumberBaseSystem("3X1U", 34)
+    b34.convertFromBaseToBase(targetBase = 2).printValue()
 }
