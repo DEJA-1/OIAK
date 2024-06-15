@@ -13,17 +13,18 @@ class NumberBaseSystem(val value: String, val base: Int) : NumberSystem<String>(
 
     fun convertFromBaseToBase(targetBase: Int): NumberBaseSystem {
         val doubleTargetBase = targetBase.toDouble()
-        var rootedTargetBase = sqrt(doubleTargetBase)
+        val doubleBase = base.toDouble()
+        var result: Double = doubleBase
 
         var skippable = false
-        while (rootedTargetBase > 1) {
-            rootedTargetBase = floor(sqrt(rootedTargetBase))
-            if (rootedTargetBase.toInt() == base) skippable = true
+        var powIndex = 1;
+        while (result <= doubleTargetBase) {
+            result = doubleBase.pow(powIndex)
+            if (result == doubleTargetBase) { skippable = true; break }
+            powIndex++
         }
 
-        if (skippable) {
-            return convertFromBaseToBaseUsingExponent(targetBase)
-        }
+        if (skippable) { return convertFromBaseToBaseUsingExponent(targetBase) }
 
         val decimal = convertFromBaseToDecimal()
         return decimal.convertToBase(targetBase)
