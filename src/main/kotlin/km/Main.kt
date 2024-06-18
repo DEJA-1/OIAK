@@ -1,5 +1,6 @@
-import numberSystem.Decimal
-import numberSystem.base.NumberBaseSystem
+package km
+
+import km.numberSystem.Decimal
 
 fun main() {
     val value = 156124

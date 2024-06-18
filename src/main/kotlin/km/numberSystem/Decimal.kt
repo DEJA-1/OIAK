@@ -1,6 +1,6 @@
-package numberSystem
+package km.numberSystem
 
-import numberSystem.base.NumberBaseSystem
+import km.numberSystem.base.NumberBaseSystem
 
 class Decimal(private val value: Int) : NumberSystem<Int>(value, 10) {
     fun convertToBase(base: Int): NumberBaseSystem {

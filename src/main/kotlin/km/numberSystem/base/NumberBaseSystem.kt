@@ -1,7 +1,7 @@
-package numberSystem.base
+package km.numberSystem.base
 
-import numberSystem.Decimal
-import numberSystem.NumberSystem
+import km.numberSystem.Decimal
+import km.numberSystem.NumberSystem
 import kotlin.math.*
 
 class NumberBaseSystem(val value: String, val base: Int) : NumberSystem<String>(value, base) {
